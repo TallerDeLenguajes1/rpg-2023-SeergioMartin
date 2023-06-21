@@ -39,8 +39,8 @@ namespace EspacioPersonaje{
             personaje.Salud = (float)100;
             switch (personaje.Tipo){
             case "Guerrero":
-                personaje.Nombre = Nombres[aleatorio.Next(0,11)];
-                personaje.Apodo = Apodos[aleatorio.Next(0,11)];
+                personaje.Nombre = Nombres[aleatorio.Next(0,10)];
+                personaje.Apodo = Apodos[aleatorio.Next(0,10)];
                 personaje.Velocidad = (float)aleatorio.Next(1,11);
                 personaje.Destreza = (float)aleatorio.Next(1,6);
                 personaje.Fuerza = (float)aleatorio.Next(1,11);
@@ -87,6 +87,7 @@ namespace EspacioPersonaje{
                 personaje.Armadura = (float)aleatorio.Next(1,11);
                 break;
             }
+            int anio = aleatorio.Next(1723,2024);
             int mes = aleatorio.Next(1,13);
             int dia;
             switch (mes){
@@ -106,7 +107,7 @@ namespace EspacioPersonaje{
                     dia = aleatorio.Next(1,31);
                     break;
             }
-            personaje.FechaNac = new DateTime(dia,mes,aleatorio.Next(1723,2024));
+            personaje.FechaNac = new DateTime(anio,mes,dia);
             personaje.Edad = (int)(DateTime.Now.Year - personaje.FechaNac.Year);
             return personaje;
         }
